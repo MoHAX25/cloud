@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="folders">
+<head>
+    <title>Облако</title>
+    <link rel = "stylesheet" href="src/bootstrap.css">
+    <link rel = "stylesheet" href="src/style.css">
+    <meta charset="utf-8">
+    <script src="src/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+            integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-cookies.js"></script>
+    <script src="src/ng-file-upload.js" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.10/angular-material.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.9/angular-material.min.css">
+    <script type="text/javascript" src="src/script.js"></script>
+</head>
+<body ng-controller="folders_controller" ng-cloak>
+    <div style="visibility: hidden">
+        <div class="md-dialog-container" id="sharedia">
+            <md-dialog aria-label="Публичные ссылки" style="max-width:30%;max-height:100%;">
+                <div ng-repeat="share in shared track by $index" >
+                <div class="shared_name"><p>Имя файла: <br>{{share.filename}}</p></div>
+                <md-input-container class="md-icon-float md-block">
+                    
+                        <input id="{{share.filename}}" readonly area-label="link" ng-model="share.link" />
+                         <md-button ng-click="copy_link(share.filename)">Скопировать</md-button>
+                         <span class="tooltiptext" id="Tooltip">Скопировано!</span>
+                       
+                   
+                </md-input-container>
+                </div>
+                <md-dialog-actions layout="row">
+                    <md-button ng-click="cancel()">
+                        Закрыть
+                    </md-button>
+                </md-dialog-actions>
+            </md-dialog>
+        </div>
+    </div>
+    
+
+    <div class="top_bar">
+        <md-button ng-click="create_folder($event)">Создать папку</md-button>
+        <md-button ngf-select="upload_file($file)">Загрузить новый файл</md-button>
+        <md-button ng-click="show_links($event)">Показать публичные ссылки</md-button>
+    </div>
+    <div class="place">
+        <div class="folder" ng-repeat="file in files track by $index" >
+            <img class="prew" ng-src="{{file[3]}}" ng-click="check_folder(file)">
+            <div class="folder-text" ng-bind="file[2]"></div>
+            <md-button ng-if="download_icon(file[0])" ng-disabled="shared_check(file[1])" ng-click="create_link(file)" class="share md-fab md-mini" aria-label="Поделиться файлом">
+                <md-icon md-svg-src="icons/share.svg"></md-icon>
+            </md-button>
+            <md-button ng-if="download_icon(file[0])" class="md-fab md-mini md-primary" ng-href="{{file[1]}}" download aria-label="Скачать файл">
+                <md-icon md-svg-src="icons/download.svg"></md-icon>
+            </md-button>
+            <md-button class="md-fab md-mini" ng-click="delete(file)" aria-label="Удалить файл">
+                <md-icon md-svg-src="icons/trash.svg"></md-icon>
+            </md-button>
+            
+        </div>
+
+        
+    </div>
+    <div class="bot_bar">
+        <md-button ng-if="back" ng-click="rollback()" class="roll-back">Вернуться назад</md-button>
+        <md-button ng-click="log_out()">Выйти из системы</md-button>
+    </div>
+</body>
+</html>

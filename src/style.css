@@ -1,0 +1,86 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+.login_form {
+	top:20%;
+	margin: 10px;
+	left: 40%;
+	width: 15%;
+	height: 50%;
+	position: absolute;
+	text-align: center;
+}
+#alert {
+	text-align: center;
+	color: red;
+}
+
+.prew {
+  padding: 0 6px 0 6px;
+  margin: 6px 8px 6px 8px;
+  max-width: 150px;
+  border-radius: 3px;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration:none;
+  border: none;
+  outline: none;
+}
+.folder img {
+	
+	height: 85px;
+}
+.folder {
+	text-align: center;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	width: 150px;
+	margin: 10px; 
+	height: 150px;
+	display: inline-block;
+	z-index: 0;
+	opacity: 0.8;
+	
+}
+.folder-text {
+	max-width: 150px;
+	word-wrap: break-word;
+}
+.folder:hover {
+	/*transition: all 0.3s ease;*/
+	opacity: 1;
+ 	background-color: rgba(0,0,0,0.1);
+}
+.md-fab {
+	margin: 0!important;
+	z-index: 1;
+}
+.share {
+	background-color: rgba(135, 211, 124, 1)!important;
+}
+.shared_name {
+	border: 1.5px solid rgba(44, 130, 201, 1);
+	border-radius: 5px;
+	text-align: center;
+	margin: 5%;
+	padding: 3%;
+	background-color: rgba(0, 181, 204, 1);
+}
+
+ .tooltiptext {
+    visibility: hidden;
+    width: 140px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -75px;
+    opacity: 1;
+    transition: opacity 0.3s;
+}

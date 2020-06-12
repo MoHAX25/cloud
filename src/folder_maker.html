@@ -1,0 +1,24 @@
+<md-dialog aria-label="Создание директории" style="max-width:30%;max-height:100%;">
+	<form ng-cloak ng-submit="answer(folder)">
+		<md-toolbar>
+		      <div class="md-toolbar-tools">
+		        <h2>Введите название новой папки:</h2>
+		        <span flex></span>
+		      </div>
+		</md-toolbar>
+	    <p>Путь к файлу: {{folder.path}}</p>
+	    <md-input-container class="md-icon-float md-block">
+	        <label>Имя папки:</label>
+
+	        <input type="text" required  ng-model="folder.foldername" />
+	    </md-input-container>
+	    <md-dialog-actions layout="row">
+	     	<md-button ng-click="cancel()">
+	       		Отменить
+	      	</md-button>
+	      	<md-button type="submit" ng-click="">
+	       		Подтвердить
+	      	</md-button>
+	    </md-dialog-actions>
+	</form>
+</md-dialog>

@@ -1,0 +1,15 @@
+<md-dialog aria-label="Публичные ссылки" style="max-width:30%;max-height:100%;">
+	<div ng-repeat="share in shared track by $index" >
+	    <div class="shared_name"><p>Имя файла: <br>{{share.filename}}</p></div>
+	    <md-input-container class="md-icon-float md-block">
+	        <input disabled area-label="link" ng-model="share.link" />
+	        <md-button ng-click="answer(share.link)">Скопировать</md-button>
+	    </md-input-container>
+	    </div>
+	    <md-dialog-actions layout="row">
+	     	<md-button ng-click="cancel()">
+	       		Закрыть
+	      	</md-button>
+	    </md-dialog-actions>
+	
+</md-dialog>
